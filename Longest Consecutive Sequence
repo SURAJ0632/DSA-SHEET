@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        if (nums.size() == 0)
+            return 0;
+
+        // Convert the vector into an unordered set for faster lookups.
+        unordered_set<int> numSet(nums.begin(), nums.end());
+        int longestStreak = 1;
+
+        for (int num : numSet) {
+            // Check if num - 1 exists in the set. If it does, this is not the start of a consecutive sequence.
+            if (numSet.find(num - 1) == numSet.end()) {
+                int currentNum = num;
+                int currentStreak = 1;
+
+                // Expand the consecutive sequence from the current number.
+                while (numSet.find(currentNum + 1) != numSet.end()) {
+                    currentNum++;
+                    currentStreak++;
+                }
+
+                longestStreak = max(longestStreak, currentStreak);
+            }
+        }
+
+        return longestStreak;
+    }
+};
