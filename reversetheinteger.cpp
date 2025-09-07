@@ -1,5 +1,5 @@
 #include <iostream>
-#include <climits> // For INT_MAX and INT_MIN
+#include <climits> 
 
 using namespace std;
 
@@ -11,7 +11,6 @@ public:
         while (x != 0) {
             int digit = x % 10;
 
-            // Check for overflow before multiplying and adding
             if (ans > INT_MAX / 10 || (ans == INT_MAX / 10 && digit > 7)) {
                 return 0;
             }
