@@ -1,42 +1,22 @@
 #include <iostream>
-#include <climits> 
-
+#include<math.h>
 using namespace std;
+int main()
+{
+    int n;
+    cin >> n;
+    int ans = 0;
+    int i = 0;
 
-class Solution {
-public:
-    int reverse(int x) {
-        int ans = 0;
+    while (n != 0)
+    {
+        int bit = n & 1;
+        ans = (bit * pow(10, i)) + ans;
 
-        while (x != 0) {
-            int digit = x % 10;
+        n = n >> 1;
 
-            if (ans > INT_MAX / 10 || (ans == INT_MAX / 10 && digit > 7)) {
-                return 0;
-            }
-            if (ans < INT_MIN / 10 || (ans == INT_MIN / 10 && digit < -8)) {
-                return 0;
-            }
-
-            ans = ans * 10 + digit;
-            x /= 10;
-        }
-
-        return ans;
+        i++;
     }
-};
 
-// Optional: for testing
-int main() {
-    Solution sol;
-    int num = 123;
-    cout << "Reversed: " << sol.reverse(num) << endl;
-
-    num = -456;
-    cout << "Reversed: " << sol.reverse(num) << endl;
-
-    num = 1534236469; // This will overflow and return 0
-    cout << "Reversed: " << sol.reverse(num) << endl;
-
-    return 0;
+    cout << "answer is " << ans;  
 }
