@@ -13,7 +13,6 @@ public:
             sum += rem;
             n /= 10;
         }
-
         return product - sum;
     }
 };
