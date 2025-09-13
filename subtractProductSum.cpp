@@ -16,7 +16,6 @@ public:
         return product - sum;
     }
 };
-
 int main() {
     Solution sol;
     int n = 234;
