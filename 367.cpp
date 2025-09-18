@@ -5,9 +5,7 @@ class Solution {
 public:
     bool isPerfectSquare(int num) {
         if (num < 2) return true;
-
         long long left = 2, right = num / 2;
-
         while (left <= right) {
             long long mid = left + (right - left) / 2;
             long long guessSquared = mid * mid;
@@ -20,12 +18,9 @@ public:
                 left = mid + 1;
             }
         }
-
         return false;
     }
 };
-
-// Example usage
 int main() {
     Solution sol;
     int num;
