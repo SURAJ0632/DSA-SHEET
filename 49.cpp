@@ -15,7 +15,7 @@ public:
         for (const string& s : strs) {
             string sortedStr = s;
             sort(sortedStr.begin(), sortedStr.end()); // Sort characters in the word
-            mp[sortedStr].push_back(s); // Group by sorted word
+            mp[sortedStr].push_back(s); 
         }
 
         // Prepare the result from the map
