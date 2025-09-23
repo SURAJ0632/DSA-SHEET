@@ -10,24 +10,22 @@ int searchInRotatedArray(const vector<int>& nums, int target) {
 
         if (nums[mid] == target)
             return mid;
-
-        // Check if left half is sorted
         if (nums[low] <= nums[mid]) {
             if (nums[low] <= target && target < nums[mid])
-                high = mid - 1;  // Target is in the left half
+                high = mid - 1; 
             else
-                low = mid + 1;   // Target is in the right half
+                low = mid + 1; 
         }
-        // Otherwise, right half must be sorted
+
         else {
             if (nums[mid] < target && target <= nums[high])
-                low = mid + 1;   // Target is in the right half
+                low = mid + 1;  
             else
-                high = mid - 1;  // Target is in the left half
+                high = mid - 1; 
         }
     }
 
-    return -1;  // Target not found
+    return -1; 
 }
 
 int main() {
